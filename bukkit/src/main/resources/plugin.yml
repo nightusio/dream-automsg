@@ -1,8 +1,8 @@
-main: "cc.dreamcode.template.BukkitTemplatePlugin"
+main: "cc.dreamcode.plugin.AutoMessagePlugin"
 version: "1.0"
-name: "Dream-Template"
-description: "Dream-Template written by dreamcode.cc"
+name: "Dream-AutoMessage"
+description: "Simple AutoMessage plugin"
 website: "https://dreamcode.cc"
-author: "author"
-prefix: "Dream-Template-Bukkit"
+author: "Nightusio"
+prefix: "Dream-AutoMessage-Bukkit"
 api-version: 1.13
