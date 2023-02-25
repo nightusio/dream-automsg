@@ -63,7 +63,7 @@ dependencies {
 shadowJar {
     checkstyleTest
 
-    archiveFileName = "Dream-Template-Bukkit-${project.version}.jar"
+    archiveFileName = "Dream-AutoMessage-Bukkit-${project.version}.jar"
 
     minimize()
 

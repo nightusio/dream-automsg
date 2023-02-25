@@ -19,23 +19,30 @@ public class AutoMsgRunnable extends BukkitRunnable {
     AutoMsgService autoMsgService;
 
     private int currentMessageIndex = 0;
+    private int runStart = 0;
 
     @Override
     public void run() {
+        int runInterval = pluginConfig.msgInterval;
+
         if (this.pluginConfig.messages.isEmpty()) {
             return;
         }
 
-        String messageString = this.pluginConfig.messages.get(currentMessageIndex);
-        BukkitNotice message = new BukkitNotice(this.pluginConfig.noticeType, messageString);
-        for (Player p : Bukkit.getOnlinePlayers()) {
-            message.send(p);
-        }
+        runStart++;
+        if(runStart >= runInterval) {
+            String messageString = this.pluginConfig.messages.get(currentMessageIndex);
+            BukkitNotice message = new BukkitNotice(this.pluginConfig.noticeType, messageString);
+            for (Player p : Bukkit.getOnlinePlayers()) {
+                message.send(p);
+            }
 
-        currentMessageIndex++;
-        if (currentMessageIndex >= this.pluginConfig.messages.size()) {
-            currentMessageIndex = 0;
+            currentMessageIndex++;
+            if (currentMessageIndex >= this.pluginConfig.messages.size()) {
+                currentMessageIndex = 0;
+            }
+
+            runStart = 0;
         }
     }
-
 }
