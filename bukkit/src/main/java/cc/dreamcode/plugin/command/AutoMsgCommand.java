@@ -17,10 +17,8 @@ import java.util.List;
 @RequiredPermission
 public class AutoMsgCommand extends BukkitCommand {
 
-    private @Inject
-    MessageConfig messageConfig;
-    private @Inject
-    PluginConfig pluginConfig;
+    private @Inject MessageConfig messageConfig;
+    private @Inject PluginConfig pluginConfig;
 
     public AutoMsgCommand() {
         super("automsg", "am");
@@ -40,7 +38,7 @@ public class AutoMsgCommand extends BukkitCommand {
             reloadConfig(sender, time);
         }
         if (args[0].equals("time")) {
-            if(args.length < 2) {
+            if (args.length < 2) {
                 this.messageConfig.usage.send(sender, new MapBuilder<String, Object>()
                         .put("usage", "/automsg (reload, time) <czas>")
                         .build());
@@ -51,7 +49,8 @@ public class AutoMsgCommand extends BukkitCommand {
                         .put("time", args[1])
                         .build());
                 reloadConfig(sender, time);
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 this.messageConfig.notNumber.send(sender);
             }
         }
@@ -65,6 +64,7 @@ public class AutoMsgCommand extends BukkitCommand {
 
     public void reloadConfig(CommandSender sender, long time) {
         try {
+            this.pluginConfig.save();
             this.messageConfig.load();
             this.pluginConfig.load();
 

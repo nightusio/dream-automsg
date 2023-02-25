@@ -12,11 +12,9 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class AutoMsgRunnable extends BukkitRunnable {
 
-    private @Inject
-    AutoMessagePlugin autoMessagePlugin;
+    private @Inject AutoMessagePlugin autoMessagePlugin;
     private @Inject PluginConfig pluginConfig;
-    private @Inject
-    AutoMsgService autoMsgService;
+    private @Inject AutoMsgService autoMsgService;
 
     private int currentMessageIndex = 0;
     private int runStart = 0;
@@ -30,11 +28,11 @@ public class AutoMsgRunnable extends BukkitRunnable {
         }
 
         runStart++;
-        if(runStart >= runInterval) {
+        if (runStart >= runInterval) {
             String messageString = this.pluginConfig.messages.get(currentMessageIndex);
             BukkitNotice message = new BukkitNotice(this.pluginConfig.noticeType, messageString);
             for (Player p : Bukkit.getOnlinePlayers()) {
-                if(Bukkit.getOnlinePlayers().isEmpty()) {
+                if (Bukkit.getOnlinePlayers().isEmpty()) {
                     return;
                 }
                 message.send(p);

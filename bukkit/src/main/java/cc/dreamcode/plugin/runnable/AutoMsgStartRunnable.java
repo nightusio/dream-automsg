@@ -11,12 +11,9 @@ import eu.okaeri.injector.annotation.Inject;
 @Scheduler(delay = 20, interval = 20)
 public class AutoMsgStartRunnable implements Runnable {
 
-    private @Inject
-    AutoMessagePlugin autoMessagePlugin;
-    private @Inject
-    AutoMsgService autoMsgService;
-    private @Inject
-    PluginConfig pluginConfig;
+    private @Inject AutoMessagePlugin autoMessagePlugin;
+    private @Inject AutoMsgService autoMsgService;
+    private @Inject PluginConfig pluginConfig;
 
 
     @Override

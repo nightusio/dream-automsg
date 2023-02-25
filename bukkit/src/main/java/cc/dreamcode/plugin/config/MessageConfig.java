@@ -28,6 +28,4 @@ public class MessageConfig extends OkaeriConfig {
     public BukkitNotice reloadError = new BukkitNotice(NoticeType.CHAT, "&4Wystapil blad podczas wczytywania konfiguracji pluginu!");
     public BukkitNotice timeUpdated = new BukkitNotice(NoticeType.CHAT, "&4Pomyslnie zmieniles interval wysylanych wiadomosci na {time}");
 
-
-
 }
