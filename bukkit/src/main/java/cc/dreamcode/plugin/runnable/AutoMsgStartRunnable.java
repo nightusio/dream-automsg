@@ -18,7 +18,7 @@ public class AutoMsgStartRunnable implements Runnable {
 
     @Override
     public void run() {
-        if (!this.autoMsgService.getAutoMsgState().equals(AutoMsgState.OFF) || !this.pluginConfig.shouldSendMessages) {
+        if (!this.autoMsgService.getAutoMsgState().equals(AutoMsgState.OFF)) {
             return;
         }
 

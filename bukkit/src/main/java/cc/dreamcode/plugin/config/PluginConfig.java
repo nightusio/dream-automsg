@@ -32,5 +32,5 @@ public class PluginConfig extends OkaeriConfig {
     public int msgInterval = 10;
 
     @Comment("Lista wiadomosci ktore wysyla plugin")
-    public List<String> messages = new ArrayList<>(Arrays.asList("Jest to wiadomosc testowa!", "Ta wiadomosc mozesz zmienic w config.yml!", "Kolejna testowa wiadomosci"));
+    public List<String> messages = new ArrayList<>(Arrays.asList("&2Jest to wiadomosc testowa!", "&2Ta wiadomosc mozesz zmienic w config.yml!", "&3Kolejna testowa wiadomosci"));
 }

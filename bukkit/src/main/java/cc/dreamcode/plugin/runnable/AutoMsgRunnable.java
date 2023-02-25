@@ -23,7 +23,7 @@ public class AutoMsgRunnable extends BukkitRunnable {
     public void run() {
         int runInterval = pluginConfig.msgInterval;
 
-        if (this.pluginConfig.messages.isEmpty()) {
+        if (this.pluginConfig.messages.isEmpty() || !this.pluginConfig.shouldSendMessages) {
             return;
         }
 

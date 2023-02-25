@@ -35,7 +35,7 @@ public class AutoMsgCommand extends BukkitCommand {
             return;
         }
         if (args[0].equals("reload")) {
-            reloadConfig(sender, time);
+            reloadConfig(sender, time, false);
         }
         if (args[0].equals("time")) {
             if (args.length < 2) {
@@ -48,7 +48,7 @@ public class AutoMsgCommand extends BukkitCommand {
                 this.messageConfig.timeUpdated.send(sender, new MapBuilder<String, Object>()
                         .put("time", args[1])
                         .build());
-                reloadConfig(sender, time);
+                reloadConfig(sender, time, true);
             }
             catch (Exception e) {
                 this.messageConfig.notNumber.send(sender);
@@ -62,9 +62,11 @@ public class AutoMsgCommand extends BukkitCommand {
         return null;
     }
 
-    public void reloadConfig(CommandSender sender, long time) {
+    public void reloadConfig(CommandSender sender, long time, boolean shouldSave) {
         try {
-            this.pluginConfig.save();
+            if (shouldSave) {
+                this.pluginConfig.save();
+            }
             this.messageConfig.load();
             this.pluginConfig.load();
 
