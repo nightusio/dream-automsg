@@ -59,7 +59,7 @@ public final class AutoMessagePlugin extends DreamBukkitPlatform {
             componentManager.registerResolver(DocumentPersistenceComponentResolver.class);
             componentManager.registerResolver(DocumentRepositoryComponentResolver.class);
 
-            componentManager.registerComponent(DocumentPersistence.class);
+         //   componentManager.registerComponent(DocumentPersistence.class);
         });
         componentManager.registerComponent(AutoMsgService.class);
         componentManager.registerComponent(AutoMsgStartRunnable.class);
