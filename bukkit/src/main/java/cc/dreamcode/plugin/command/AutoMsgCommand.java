@@ -30,10 +30,40 @@ public class AutoMsgCommand extends BukkitCommand {
     public void content(@NonNull CommandSender sender, @NonNull String[] args) {
         final long time = System.currentTimeMillis();
 
-        if(args.length > 1) {
-            sender.sendMessage("Poprawne uzycie: /automsg (reload, time) <czas>");
+        if (args.length < 1) {
+            this.messageConfig.usage.send(sender, new MapBuilder<String, Object>()
+                    .put("usage", "/automsg (reload, time) <czas>")
+                    .build());
             return;
         }
+        if (args[0].equals("reload")) {
+            reloadConfig(sender, time);
+        }
+        if (args[0].equals("time")) {
+            if(args.length < 2) {
+                this.messageConfig.usage.send(sender, new MapBuilder<String, Object>()
+                        .put("usage", "/automsg (reload, time) <czas>")
+                        .build());
+            }
+            try {
+                this.pluginConfig.msgInterval = Integer.parseInt(args[1]);
+                this.messageConfig.timeUpdated.send(sender, new MapBuilder<String, Object>()
+                        .put("time", args[1])
+                        .build());
+                reloadConfig(sender, time);
+            } catch (Exception e) {
+                this.messageConfig.notNumber.send(sender);
+            }
+        }
+
+    }
+
+    @Override
+    public List<String> tab(@NonNull Player player, @NonNull String[] args) {
+        return null;
+    }
+
+    public void reloadConfig(CommandSender sender, long time) {
         try {
             this.messageConfig.load();
             this.pluginConfig.load();
@@ -51,8 +81,4 @@ public class AutoMsgCommand extends BukkitCommand {
         }
     }
 
-    @Override
-    public List<String> tab(@NonNull Player player, @NonNull String[] args) {
-        return null;
-    }
 }

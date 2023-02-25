@@ -34,6 +34,9 @@ public class AutoMsgRunnable extends BukkitRunnable {
             String messageString = this.pluginConfig.messages.get(currentMessageIndex);
             BukkitNotice message = new BukkitNotice(this.pluginConfig.noticeType, messageString);
             for (Player p : Bukkit.getOnlinePlayers()) {
+                if(Bukkit.getOnlinePlayers().isEmpty()) {
+                    return;
+                }
                 message.send(p);
             }
 

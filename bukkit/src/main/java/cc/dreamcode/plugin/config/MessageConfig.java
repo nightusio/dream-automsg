@@ -23,12 +23,10 @@ public class MessageConfig extends OkaeriConfig {
     public BukkitNotice usage = new BukkitNotice(NoticeType.CHAT, "&7Poprawne uzycie: &c{usage}");
     public BukkitNotice noPermission = new BukkitNotice(NoticeType.CHAT, "&4Nie posiadasz uprawnien.");
     public BukkitNotice noPlayer = new BukkitNotice(NoticeType.CHAT, "&4Podanego gracza &cnie znaleziono.");
-    public BukkitNotice playerIsOffline = new BukkitNotice(NoticeType.CHAT, "&4Podany gracz &cjest offline.");
-    public BukkitNotice notPlayer = new BukkitNotice(NoticeType.CHAT, "&4Nie jestes graczem.");
     public BukkitNotice notNumber = new BukkitNotice(NoticeType.CHAT, "&4Podana liczba &cnie jest cyfra.");
-    public BukkitNotice playerIsMe = new BukkitNotice(NoticeType.CHAT, "&4Nie rob tego &cna sobie.");
     public BukkitNotice reloaded = new BukkitNotice(NoticeType.CHAT, "&4Konfiguracja pluginu zostala pomyslnie zaladowana!");
     public BukkitNotice reloadError = new BukkitNotice(NoticeType.CHAT, "&4Wystapil blad podczas wczytywania konfiguracji pluginu!");
+    public BukkitNotice timeUpdated = new BukkitNotice(NoticeType.CHAT, "&4Pomyslnie zmieniles interval wysylanych wiadomosci na {time}");
 
 
 
