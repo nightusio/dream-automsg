@@ -18,7 +18,6 @@ import cc.dreamcode.plugin.command.AutoMsgCommand;
 import cc.dreamcode.plugin.config.MessageConfig;
 import cc.dreamcode.plugin.config.PluginConfig;
 import cc.dreamcode.plugin.mcversion.VersionProvider;
-import cc.dreamcode.plugin.runnable.AutoMsgStartRunnable;
 import cc.dreamcode.plugin.service.AutoMsgService;
 import eu.okaeri.configs.serdes.OkaeriSerdesPack;
 import eu.okaeri.tasker.bukkit.BukkitTasker;
@@ -58,7 +57,6 @@ public final class AutoMessagePlugin extends DreamBukkitPlatform {
 
         });
         componentManager.registerComponent(AutoMsgService.class);
-        componentManager.registerComponent(AutoMsgStartRunnable.class);
         componentManager.registerComponent(AutoMsgCommand.class);
     }
 
