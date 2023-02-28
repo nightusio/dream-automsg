@@ -12,6 +12,7 @@ import lombok.NonNull;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.time.Duration;
 import java.util.List;
 
 @RequiredPermission
@@ -44,7 +45,7 @@ public class AutoMsgCommand extends BukkitCommand {
                         .build());
             }
             try {
-                this.pluginConfig.msgInterval = Integer.parseInt(args[1]);
+                this.pluginConfig.msgInterval = Duration.parse(args[0]);
                 this.messageConfig.timeUpdated.send(sender, new MapBuilder<String, Object>()
                         .put("time", args[1])
                         .build());

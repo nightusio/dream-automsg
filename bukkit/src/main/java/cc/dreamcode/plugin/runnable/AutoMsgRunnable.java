@@ -12,13 +12,14 @@ public class AutoMsgRunnable extends BukkitRunnable {
     private @Inject AutoMessagePlugin autoMessagePlugin;
     private @Inject PluginConfig pluginConfig;
     private @Inject AutoMsgService autoMsgService;
+
     private int currentMessageIndex = 0;
     private int runStart = 0;
 
     @Override
     public void run() {
-        Long runIntervalLong = pluginConfig.msgInterval.getSeconds() * 20;
-        int runInterval = Math.round((runIntervalLong));
+        long runIntervalLong = pluginConfig.msgInterval.getSeconds() * 20;
+        int runInterval = Math.round(runIntervalLong);
 
         if (this.pluginConfig.messages.isEmpty() || !this.pluginConfig.shouldSendMessages) {
             return;
