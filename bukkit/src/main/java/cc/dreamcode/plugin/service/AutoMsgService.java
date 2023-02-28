@@ -12,7 +12,7 @@ public class AutoMsgService {
     private @Inject AutoMessagePlugin autoMessagePlugin;
     private @Inject PluginConfig pluginConfig;
 
-    public void callScheduler() {
+    public void registerScheduler() {
         if (EventHandler.handle(new AutoMsgStartEvent())) {
             return;
         }
