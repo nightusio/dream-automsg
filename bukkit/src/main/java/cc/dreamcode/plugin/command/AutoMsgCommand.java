@@ -28,34 +28,43 @@ public class AutoMsgCommand extends BukkitCommand {
     @Override
     public void content(@NonNull CommandSender sender, @NonNull String[] args) {
         final long time = System.currentTimeMillis();
+        if (args.length != 0) {
+            if (args[0].equals("reload")) {
+                reloadConfig(sender, time, false);
+                return;
+            }
 
-        if (args.length < 1) {
-            this.messageConfig.usage.send(sender, new MapBuilder<String, Object>()
-                    .put("usage", "/automsg (reload, time) <czas>")
-                    .build());
+            if (args[0].equals("time")) {
+                if (args.length < 2) {
+                    this.messageConfig.usage.send(sender, new MapBuilder<String, Object>()
+                            .put("usage", "/automsg (reload, time) <czas>")
+                            .build());
+                    return;
+                }
+
+                try {
+                    // TODO: 28.02.2023
+                    // Trzeba sprawdzic, czy poprawnie parse zapisuje dane.
+                    // lub usunac to, jest od tego confing i /plugin reload
+                    this.pluginConfig.msgInterval = Duration.parse("PT" + args[1]);
+
+                    this.messageConfig.timeUpdated.send(sender, new MapBuilder<String, Object>()
+                            .put("time", args[1])
+                            .build());
+
+                    reloadConfig(sender, time, true);
+                }
+                catch (Exception e) {
+                    this.messageConfig.notNumber.send(sender);
+                }
+            }
+
             return;
         }
-        if (args[0].equals("reload")) {
-            reloadConfig(sender, time, false);
-        }
-        if (args[0].equals("time")) {
-            if (args.length < 2) {
-                this.messageConfig.usage.send(sender, new MapBuilder<String, Object>()
-                        .put("usage", "/automsg (reload, time) <czas>")
-                        .build());
-            }
-            try {
-                this.pluginConfig.msgInterval = Duration.parse(args[0]);
-                this.messageConfig.timeUpdated.send(sender, new MapBuilder<String, Object>()
-                        .put("time", args[1])
-                        .build());
-                reloadConfig(sender, time, true);
-            }
-            catch (Exception e) {
-                this.messageConfig.notNumber.send(sender);
-            }
-        }
 
+        this.messageConfig.usage.send(sender, new MapBuilder<String, Object>()
+                .put("usage", "/automsg (reload, time) <czas>")
+                .build());
     }
 
     @Override
