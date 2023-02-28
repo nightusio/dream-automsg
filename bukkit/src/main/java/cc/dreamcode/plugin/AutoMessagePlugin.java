@@ -57,7 +57,7 @@ public final class AutoMessagePlugin extends DreamBukkitPlatform {
 
         });
 
-        componentManager.registerComponent(AutoMsgService.class, AutoMsgService::callScheduler);
+        componentManager.registerComponent(AutoMsgService.class, AutoMsgService::registerScheduler);
         componentManager.registerComponent(AutoMsgCommand.class);
     }
 
