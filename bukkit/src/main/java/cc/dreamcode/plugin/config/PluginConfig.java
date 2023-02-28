@@ -9,7 +9,6 @@ import eu.okaeri.configs.annotation.Header;
 import eu.okaeri.configs.annotation.NameModifier;
 import eu.okaeri.configs.annotation.NameStrategy;
 import eu.okaeri.configs.annotation.Names;
-import org.bukkit.Bukkit;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -29,7 +28,6 @@ public class PluginConfig extends OkaeriConfig {
     public boolean shouldSendMessages = true;
 
     @Comment("Co ile ma byc wysylana wiadomosc")
-    //public int msgInterval = 10;
     public Duration msgInterval = Duration.ofSeconds(10);
 
     @Comment("Lista wiadomosci ktore wysyla plugin")
