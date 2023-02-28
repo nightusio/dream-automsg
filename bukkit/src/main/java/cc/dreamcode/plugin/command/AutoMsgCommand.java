@@ -58,6 +58,8 @@ public class AutoMsgCommand extends BukkitCommand {
                     this.messageConfig.notNumber.send(sender);
                 }
             }
+
+            return;
         }
 
         this.messageConfig.usage.send(sender, new MapBuilder<String, Object>()
