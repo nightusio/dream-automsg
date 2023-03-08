@@ -2,6 +2,7 @@ package cc.dreamcode.plugin.command;
 
 import cc.dreamcode.command.annotations.RequiredPermission;
 import cc.dreamcode.command.bukkit.BukkitCommand;
+import cc.dreamcode.plugin.AutoMessagePlugin;
 import cc.dreamcode.plugin.config.MessageConfig;
 import cc.dreamcode.plugin.config.PluginConfig;
 import cc.dreamcode.utilities.TimeUtil;
@@ -13,6 +14,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @RequiredPermission
@@ -20,6 +23,7 @@ public class AutoMsgCommand extends BukkitCommand {
 
     private @Inject MessageConfig messageConfig;
     private @Inject PluginConfig pluginConfig;
+    private @Inject AutoMessagePlugin bukkitTemplatePlugin;
 
     public AutoMsgCommand() {
         super("automsg", "am");
@@ -43,9 +47,6 @@ public class AutoMsgCommand extends BukkitCommand {
                 }
 
                 try {
-                    // TODO: 28.02.2023
-                    // Trzeba sprawdzic, czy poprawnie parse zapisuje dane.
-                    // lub usunac to, jest od tego confing i /plugin reload
                     this.pluginConfig.msgInterval = Duration.parse("PT" + args[1]);
 
                     this.messageConfig.timeUpdated.send(sender, new MapBuilder<String, Object>()
@@ -69,9 +70,11 @@ public class AutoMsgCommand extends BukkitCommand {
 
     @Override
     public List<String> tab(@NonNull Player player, @NonNull String[] args) {
+        if(args.length == 1) {
+            return new ArrayList<>(Arrays.asList("reload", "time"));
+        }
         return null;
     }
-
     public void reloadConfig(CommandSender sender, long time, boolean shouldSave) {
         try {
             if (shouldSave) {

@@ -31,5 +31,8 @@ public class PluginConfig extends OkaeriConfig {
     public Duration msgInterval = Duration.ofSeconds(10);
 
     @Comment("Lista wiadomosci ktore wysyla plugin")
-    public List<BukkitNotice> messages = new ArrayList<>(Arrays.asList(new BukkitNotice(NoticeType.CHAT, "&1Testowa Wiadomosc"), new BukkitNotice(NoticeType.CHAT, "&22 Druga testowa wiadomosc"), new BukkitNotice(NoticeType.CHAT, "&3Trzecie testowa Wiadomosc")));
+    public List<BukkitNotice> messages = new ArrayList<>(Arrays.asList(
+            new BukkitNotice(NoticeType.CHAT, "&1Testowa Wiadomosc"),
+            new BukkitNotice(NoticeType.CHAT, "&22 Druga testowa wiadomosc"),
+            new BukkitNotice(NoticeType.CHAT, "&3Trzecie testowa Wiadomosc")));
 }
