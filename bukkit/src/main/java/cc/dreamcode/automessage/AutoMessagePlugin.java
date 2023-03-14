@@ -48,12 +48,7 @@ public final class AutoMessagePlugin extends DreamBukkitPlatform {
             bukkitCommandProvider.setNoPermissionMessage(messageConfig.noPermission);
             bukkitCommandProvider.setNoPlayerMessage(messageConfig.noPlayer);
         }));
-        componentManager.registerComponent(PluginConfig.class, pluginConfig -> {
-
-            componentManager.registerResolver(DocumentPersistenceComponentResolver.class);
-            componentManager.registerResolver(DocumentRepositoryComponentResolver.class);
-
-        });
+        componentManager.registerComponent(PluginConfig.class);
 
         componentManager.registerComponent(AutoMsgService.class, AutoMsgService::callScheduler);
         componentManager.registerComponent(AutoMsgCommand.class);
