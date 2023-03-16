@@ -16,7 +16,7 @@ dependencies {
     implementation "cc.dreamcode:utilities-bukkit:1.1.2"
 
     // -- dream-notice --
-    implementation "cc.dreamcode.notice:core:1.2.2"
+    implementation "cc.dreamcode.notice:core:1.2.3"
     implementation "cc.dreamcode.notice:bukkit:1.2.2"
     implementation "cc.dreamcode.notice:bukkit-okaeri-serdes:1.2.2"
 
