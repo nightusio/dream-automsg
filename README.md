@@ -1,11 +1,7 @@
-Working with template:
+dream-automsg:
 -----
-Clone this repo to your account, rename package name, then by pressing ``CTRL + SHIFT + R`` change all variables to your plugin name. (Template --> PluginName).
+Some old automsg plugin, making my old repositories public 
 
-Finally, remove all **unnecessary** template functions.
-(support mc versions can easily removed by deleting implement in settings.gradle)
-
-Read all comment above method/class/reference to find out what it means and how to use it -
 Build to jar by ``shadowJar`` gradle task.
 
 **Required:**
@@ -13,12 +9,6 @@ Build to jar by ``shadowJar`` gradle task.
 - Spigot-api 1.8.8, 1.12.2, 1.16.5, 1.17.1, 1.18.2, 1.19.3 (or implement by self)
 - Java 8+. (template works on java 8)
 
-Working with NMS:
------
-- Add ProtocolLib to build.gradle and work with it.
-- Add craftbukkit packages into mc-version modules.
-
-------
 
 **Libraries**: <33
 - [Dream-Platform](https://github.com/DreamPoland/dream-platform) by [DreamCode](https://github.com/DreamPoland)
